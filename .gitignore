@@ -3,6 +3,10 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+.DS_Store
+Silicon_labs_driver/.DS_Store
+Silicon_labs_driver/CP210x_Universal_Windows_Driver/.DS_Store
+
 # C extensions
 *.so
 
