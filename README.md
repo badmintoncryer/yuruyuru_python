@@ -71,3 +71,19 @@ USB抜き差し、切断再接続を繰り返して文字化けを解消
 ```
 
 Lチカで確認する。
+
+## BME280と通信
+BOSCH社製の温度、湿度、気圧センサ。採用実績多。
+### 回路
+![回路](https://github.com/badmintoncryer/yuruyuru_python/blob/images/bme280_schematic.png?raw=true)
+### プログラム書き込み
+    > ampy -d 1 -p COM3 put main.py
+    > ampy -d 1 -p COM3 put driver/BME280.py
+
+### 動作確認
+1. LEDの点滅確認
+2. Teratermで接続 (上記参照)
+![ログ](https://github.com/badmintoncryer/yuruyuru_python/blob/images/bme280_log.PNG?raw=true)
+
+
+
