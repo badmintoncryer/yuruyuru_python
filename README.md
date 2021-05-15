@@ -50,6 +50,8 @@ USB抜き差し、切断再接続を繰り返して文字化けを解消
 > os.uname() # HW, FW情報の表示
 > os.listdir() # ls
 ```
+### 回路
+![LED回路](https://github.com/badmintoncryer/yuruyuru_python/blob/images/LED_schematic.PNG?raw=true)
 
 ### GPIOを動かしてみる
 
