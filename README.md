@@ -82,7 +82,7 @@ BOSCH社製の温度、湿度、気圧センサ。採用実績多。
 
 ### 動作確認
 1. LEDの点滅確認
-2. Teratermで接続 (上記参照)    
+2. Teraterm/screenで接続 (上記参照)    
 ![ログ](https://github.com/badmintoncryer/yuruyuru_python/blob/images/bme280_log.PNG?raw=true)
 
 
