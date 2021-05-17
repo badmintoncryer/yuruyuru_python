@@ -8,7 +8,7 @@ pin14 = machine.Pin(14, machine.Pin.OUT)
 if (BOOLIAN_FLAG):
     high_low_flag = True
 else:
-    high_low_flag = 0x91
+    high_low_flag = 0x01
 
 while True:
     if (BOOLIAN_FLAG):
