@@ -13,6 +13,8 @@ if (BOOLIAN_FLAG):
 else:
     high_low_flag = 0x01
 
+bme = BME280.BME280(i2c=i2c)
+
 while True:
     if (BOOLIAN_FLAG):
         high_low_flag = not high_low_flag
@@ -20,7 +22,6 @@ while True:
         high_low_flag = ~high_low_flag & 0x01
     pin14.value(high_low_flag)
 
-    bme = BME280.BME280(i2c=i2c)
     temp = bme.temperature
     hum = bme.humidity
     pres = bme.pressure
