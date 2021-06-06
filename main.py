@@ -1,6 +1,6 @@
 from time import sleep
 import machine
-import BME280
+import BME280, ST7032i
 
 BOOLIAN_FLAG = True
 
@@ -14,6 +14,7 @@ else:
     high_low_flag = 0x01
 
 bme = BME280.BME280(i2c=i2c)
+lcd = ST7032i.ST7032i(i2c=i2c)
 
 while True:
     if (BOOLIAN_FLAG):
@@ -29,5 +30,11 @@ while True:
     print('Temperature: ', temp)
     print('Humidity: ', hum)
     print('Pressure: ', pres)
+
+    lcd.reset_display()
+    lcd.set_cursor(0, 0)
+    lcd.print('Temp is ' + str(temp))
+    lcd.set_cursor(0, 1)
+    lcd.print('hum is ' + str(hum))
 
     sleep(1)

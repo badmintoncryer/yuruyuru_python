@@ -89,7 +89,7 @@ class Device:
         endian byte order."""
         return self.readS16(register, little_endian=False)
 
-class ST7230i:
+class ST7032i:
     def __init__(self, i2c_address=ST7032_I2C_ADDRESS, i2c=None):
         if i2c is None:
             raise ValueError('An I2C object is required.')
