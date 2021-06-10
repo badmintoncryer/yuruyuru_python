@@ -1,20 +1,22 @@
 from time import sleep
 import machine
 
-BOOLIAN_FLAG = False
-
 # ESP32 - Pin assignment
 pin14 = machine.Pin(14, machine.Pin.OUT)
-if (BOOLIAN_FLAG):
-    high_low_flag = True
-else:
-    high_low_flag = 0x01
+high_low_flag = True
 
-while True:
-    if (BOOLIAN_FLAG):
-        high_low_flag = not high_low_flag
-    else:
-        high_low_flag = ~high_low_flag & 0x01
+def super_heavy_task():
+    print("start super heavy task")
+    sleep(5)
+    print("finish super heavy task")
 
+def timer_irq_handler(timer):
+    global high_low_flag, pin14
+    high_low_flag = not high_low_flag
     pin14.value(high_low_flag)
+
+timer = machine.Timer(0)
+timer.init(mode=machine.Timer.PERIODIC, period=1000, callback=timer_irq_handler)
+while True:
+    super_heavy_task()
     sleep(1)
