@@ -5,18 +5,13 @@ import machine
 pin14 = machine.Pin(14, machine.Pin.OUT)
 high_low_flag = True
 
-def super_heavy_task():
-    print("start super heavy task")
-    sleep(5)
-    print("finish super heavy task")
-
-def timer_irq_handler(timer):
+def gpio_irq_handler(gpio):
     global high_low_flag, pin14
     high_low_flag = not high_low_flag
     pin14.value(high_low_flag)
 
-timer = machine.Timer(0)
-timer.init(mode=machine.Timer.PERIODIC, period=1000, callback=timer_irq_handler)
+pin5 = machine.Pin(5, machine.Pin.IN, machine.Pin.PULL_DOWN)
+pin5.irq(handler=gpio_irq_handler, trigger=machine.Pin.IRQ_RISING)
 while True:
-    super_heavy_task()
-    sleep(1)
+    print("main loop")
+    sleep(5)
